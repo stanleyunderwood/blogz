@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Multi-user Blog</h1>
+    <hr/>
+        <ul>
+            {% for blog in blogs %}
+            <li><h3><a href= '/blog?id={{blog.id}}'>{{blog.title}}</a></h3>
+            {{blog.body}}
+            </li>
+            <p>Written by <a href='/user?id={{blog.owner_id}}'>{{blog.owner.username}}</a></p>
+            {% endfor %}
+        </ul>
+
+{% endblock %}  

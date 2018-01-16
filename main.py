@@ -42,7 +42,7 @@ def login():
         password = request.form['password']
         user = User.query.filter_by(username=username).first()
         if user and user.password == password:
-            session['user'] = username
+            session['username'] = username
             return redirect('/new_post')
         else:
             flash('User password incorrect, or user does not exist', 'error')
